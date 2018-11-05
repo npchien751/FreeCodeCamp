@@ -1,0 +1,67 @@
+/* This is css styling for a Freecodecamp tribute page. */
+
+body {
+	font-family: 'Gentium Book Basic';
+	margin: 4%;
+}
+
+header {
+	display: block;
+	width: auto;
+	background-color: #719BC5;
+	padding: 2px 5px 2px 5px;
+	text-align: center;
+	border-radius: 10px;
+}
+
+#title, #Short-Bio {
+	color: #1C272A;
+}
+
+#Short-Bio {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+div {
+	background-color: #A8BBC1;
+	display: grid;
+	grid-template-rows: 6fr 1fr;
+	justify-items: center;
+	align-items: center;
+	margin-top: -10px;
+}
+
+#image { 
+	max-width: 100%;
+	height: auto;
+	padding-top: 2%;
+}
+
+#img-caption { 
+	width: 80%;
+}
+
+#tribute-info {
+	background-color: #719BC5;
+	border-radius: 10px;
+	margin-top: -30px;
+	margin-bottom: -30px;
+	padding-top: 2px 2px 2px 2px;
+}
+h2 {
+	text-align: center;
+}
+
+ul {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+}
+
+#footer {
+	text-align: center;
+	font-size: 1.1em;
+}
