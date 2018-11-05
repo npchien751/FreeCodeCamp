@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Nathaniel P. Chien">
+	<meta name="description" content="FreeCodeCamp Survey Form">
+
+	<link rel="stylesheet" href="style.css">
+	<title>Survey Form</title>
+</head>
+
+<main>
+	<header>
+		<h1 id="title">Survey Form</h1>
+	</header>
+	<form id="survey-form">
+		<p id="description">
+			Please provide the following student information
+		</p>
+		<p id="nm-lbl">
+			<label id="name-label" for="name">Name: </label>
+			<input type="text" id="name" name="name" placeholder="Enter your fullname" required>
+		</p>
+		<p id="em-lbl">
+			<label id="email-label" for="email">Email: </label>
+			<input type="email" id="email" name="email" placeholder="Enter your Email" required>
+		</p>
+		<p id="nmb-lbl">
+			<label id="number-label" for="number">Age: </label>
+			<input type="number" id="number" name="age" placeholder="Age" min="1" max="130" step="1" pattern="[0-9]{3}">
+		</p>
+		<p id="dropdown">
+			<label for="fav-teach" id="drop-label">Who is your favorite teacher?</label>
+			<select id="fav-teach" name="dropdown" list="teachers">
+			<optgroup label="Teachers">
+				<option>Mr. Brown</option>
+				<option>Mrs. Hitchcock</option>
+				<option>Mrs. Jones</option>
+				<option>Mr. Krueger</option>
+				<option>Mrs. Krane</option>
+			</optgroup>
+			</select>
+		</p>
+		<p>
+			<fieldset id="class-year">
+				<legend>What is your class year?</legend>
+				<input type="radio" name="class-year" id="8th" value="8"><label for="8th">8th</label>
+				<input type="radio" name="class-year" id="9th" value="9"><label for="9th">9th</label>
+				<input type="radio" name="class-year" id="8th" value="10"><label for="10th">10th</label>
+				<input type="radio" name="class-year" id="11th" value="11"><label for="11th">11th</label>
+				<input type="radio" name="class-year" id="12th" value="12"><label for="12th">12th</label>
+			</fieldset>
+		</p>
+		<p id="classes-q">Which classes are you currently enrolled in?
+			<fieldset id="classes">
+        <legend>Check all that apply:</legend>
+				<label for="history">History</label>
+				<input id="history" type="checkbox" name="classes-enrolled-in" value="History">
+				<label for="math">Mathematics</label>
+				<input id="math" type="checkbox" name="classes-enrolled-in" value="Mathematics">
+				<label for="science">Science</label>
+				<input id="science" type="checkbox" name="classes-enrolled-in" value="Science">
+				<label for="english">English</label>
+				<input id="english" type="checkbox" name="classes-enrolled-in" value="English">
+			</fieldset>
+		</p>
+		<p id="txtarea">
+			<label for="textarea" id="comm-label">Additional comments: </label>
+			<textarea id="textarea" name="msg" maxlength="1000" rows="10"></textarea>
+		</p>
+		<p class="submit">
+			<button type="submit" id="submit">Submit</button>
+		</p>
+	</form>
+</main>
+
+</html>
