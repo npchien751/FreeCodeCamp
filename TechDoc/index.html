@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Nathaniel P. Chien">
+	<meta name="description" content="FreeCodeCamp Technical Documentation Page">
+
+	<link rel="stylesheet" href="style.css">
+	<title>Example Technical Documentation QGIS</title>
+</head>
+
+<main id="main-doc">
+	
+	<nav id="navbar">
+		<header>Python Scripting with QGIS</header>
+		<p class="nav-link-p"><a href="#Introduction" title="Introduction" class="nav-link">Introduction</a></p>
+		<p class="nav-link-p"><a href="#QGIS_and_Python" title="QGIS and Python" class="nav-link">QGIS and Python</a></p>
+		<p class="nav-link-p"><a href="#The_Python_Console" title="The Python Console" class="nav-link">The Python Console</a></p>
+		<p class="nav-link-p"><a href="#Standalone_Python_Scripts" title="Standalone Python Scripts" class="nav-link">Standalone Python Scripts</a></p>
+		<p class="nav-link-p"><a href="#Concluding_Remarks" title="Concluding Remarks" class="nav-link">Concluding Remarks</a></p>
+		<p class="nav-link-p"><a href="#Further_Resources" title="Further Resources" class="nav-link">Further Resources</a></p>
+	</nav>
+
+	<section class="main-section" id="Introduction">
+		<header>
+			Introduction
+		</header>
+		<p>
+			A Geographic Information System (GIS) is computer software that allows users to collect, store, maintain, manipulate, and analyze spatial data. QGIS is one example software. It is one of the most widely used GIS platforms, partly because it is an open-source software project. The software is built from a community-driven, collaborative efforts. It is free, stable, and changes through time as different people join the development community.
+		</p>
+		<p>
+			One of the most powerful facets of a GIS is its ability to automate tasks. Whether one wants to clip 100 different layers or count all the points within the boundaries of a county, a good GIS will make these tasks much easier and faster. While GIS have built-in functions to do things like count points, sometimes the task needs a more user-specific automation algorithm. That is where scripting comes into play, where a GIS pairs with some high-level scripting language to provide user automation capabilities. QGIS provides python scripting functionality for these purposes.
+		</p>
+	</section>
+
+	<section class="main-section" id="QGIS_and_Python">
+		<header>
+			QGIS and Python
+		</header>
+		<p>
+			Python is a powerful high-level programming language that is being used more and more in scientific computing. Along with C++, Python is the core way to communicate directly with QGIS software. There are several ways to use Python in QGIS (from the QGIS technical documentation):
+			<ul>
+				<li>automatically run Python code wehn QGIS starts</li>
+				<li> issue commands in Python console within QGIS</li>
+				<li>create and use plugins in Python</li>
+				<li>create custom applications based on QGIS's API</li>
+				<li>I need to add another element for FCC test to pass</li>
+			</ul>
+			In this document we will briefly review some of these options.
+		</p>
+	</section>
+
+	<section class="main-section" id="The_Python_Console">
+		<header>
+			The Python Console
+		</header>
+		<p>
+			Like the terminal on your Operating System, the Python console in QGIS allows you to speak directly with computer. The language you must speak, of course, is Python. The Python Console can be opened by selecting Plugins -> Python Console from the drop down menu at the top of the program. It should look similar to this:
+		</p>
+		<p>	
+			<img src="https://docs.qgis.org/2.18/en/_images/console.png" alt="The QGIS Python Console" title="QGIS Python Console">
+		</p>
+		<p>
+			It is important to note that the following code is automatically executed when the console is started.
+		</p>
+		<pre>
+			<code>
+				from qgis.core import*
+				import qgis.utils
+			</code>
+		</pre>
+		<p>
+			This code imports all of the functions in the qgis.core library. However, if you are developing scripts outside of the Python Console, these statements must be called to acquire the same functionality as the built in console (your computer doesn't automatically know QGIS functions).
+		</p>
+	</section>
+
+	<section class="main-section" id="Standalone_Python_Scripts">
+		<header>
+			Standalone Python Scripts
+		</header>
+		<p>
+			The QGIS python documentation provides this example standalone script with the accompanying description:
+		</p>
+		<pre>
+			<code>
+				from qgis.core import *
+
+				# supply path to qgis install location
+				QgsApplication.setPrefixPath("/path/to/qgis/installation", True)
+
+				# create a reference to the QgsApplication, setting the
+				# second argument to False disables the GUI
+				qgs = QgsApplication([], False)
+
+				# load providers
+				qgs.initQgis()
+
+				# Write your code here to load some layers, use processing algorithms, etc.
+
+				# When your script is complete, call exitQgis() to remove the provider and
+				# layer registries from memory
+				qgs.exitQgis()
+			</code>
+		</pre>	
+		<p>
+			We begin by importing the qgis.core module and then configuring the prefix path. The prefix path is the location where QGIS is installed on your system. It is configured in the script by calling the setPrefixPath method. The second argument of setPrefixPath is set to True, which controls whether the default paths are used.
+		</p>
+		<p>
+			The QGIS install path varies by platform; the easiest way to find it for your your system is to use the Python Console from within QGIS and look at the output from running <code>QgsApplication.prefixPath()</code>.
+		</p>
+		<p>
+			After the prefix path is configured, we save a reference to QgsApplication in the variable qgs. The second argument is set to False, which indicates that we do not plan to use the GUI since we are writing a standalone script. With the QgsApplication configured, we load the QGIS data providers and layer registry by calling the <code>qgs.initQgis()</code> method. With QGIS initialized, we are ready to write the rest of the script. Finally, we wrap up by calling <code>qgs.exitQgis()</code> to remove the data providers and layer registry from memory.
+		</p>
+	</section>
+
+	<section class="main-section" id="Concluding_Remarks">
+		<header>
+			Concluding Remarks
+		</header>
+		<p>
+			This document only scratches the surface of how to use Python with QGIS. There is a lot more to learn. I recommend practicing running some simple geoprocessing tools in the Python Console to begin learning the Qgs syntax. From there, you should be able to start writing your own standalone Qgs scripts and maybe even an API.
+		</p>
+	</section>
+
+	<section class="main-section" id="Further_Resources">
+		<header>
+			Further Resources
+		</header>
+		<p>
+			Whenever you have a question about QGIS, Python, or anything else, the best place to start is by thinking about your question. Is it simple? Have you solved it before or something similar? Once the introspection is over, I recommend rewording your question into a better question.
+		</p>
+		<p>
+			Now that you have a good question, I would ask a search engine your question. It probably doesn't know the answer because it is a software program without general intelligence. But search engines tend to be good at acting like sign posts. In that they can point you in the right direction.
+		</p>
+		<p> 
+			Now that you have a page of searches, you might notice a recurring one, the QGIS Documentation website, https://www.qgis.org/en/docs/index.html. You probably did not need to do the previous steps and could have just gone straight here to figure out the answer to your question. 
+		</p>
+		<p>
+			If none of that worked, I would ask on sites like StackOverflow or phone a friend. Maybe me? Am I your friend?
+		</p> 
+	</section>
+
+</main>
+
+</html>
