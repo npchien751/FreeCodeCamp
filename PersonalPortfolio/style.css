@@ -1,0 +1,97 @@
+
+/* Body attributes */
+body {
+	background-color: #DFDFC2;
+	margin: 0;
+	border: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* Header attribute */
+header {
+	position: fixed;
+	height: 100px;
+	display: flex;
+	width: 100%;
+}
+
+#navbar {
+	position: absolute;
+	right: 50px;
+}
+#navbar ul {
+	list-style-type: none;
+}
+
+#navbar ul li {
+	float: left;
+}
+
+#navbar ul li a {
+	display: block;
+	color: #494A26;
+	text-align: center;
+	padding: 16px;
+	text-decoration: none;
+	font-size: 1.2em;
+}
+
+/* Main attributes */
+
+main {
+	padding-top: 100px;
+	text-align: center;
+}
+
+#welcome-section {
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#projects {
+	display: grid;
+	grid-template-rows: 1fr 2fr 2fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+		"head head"
+		"proj1 proj2"
+		"proj3 proj4"
+		"foot foot";
+}
+#proj-head { grid-area: head; }
+#project1 { grid-area: proj1; }
+#project2 { grid-area: proj2; }
+#project3 { grid-area: proj3; }
+#project4 { grid-area: proj4; }
+#proj-foot { grid-area: foot; }
+
+#contact {
+	display: grid;
+	grid-template-rows: 1fr 2fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-areas:
+		"head head head"
+		"social email phone";
+}
+
+#contact h2 { grid-area: head; }
+#social-media { grid-area: social; }
+#email { grid-area: email; }
+#phone { grid-area: phone; }
+
+/* Footer */
+footer {
+	text-align: center;
+}
+
+/* Media Queries */
+@media screen and (max-width: 650px) {
+	#projects { display: block; }
+	#contact { display: block; }
+}
